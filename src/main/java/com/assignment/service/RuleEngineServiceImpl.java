@@ -40,13 +40,11 @@ public class RuleEngineServiceImpl implements RuleEngineService {
 
     @Override
     public RuleAPIReturnResponse offerRuleTwo(List<Integer> productPrices) {
-        // Sort the list in descending order so that the highest priced items are considered first.
         Collections.sort(productPrices, Collections.reverseOrder());
 
         List<Integer> discountedItems = new ArrayList<>();
         List<Integer> payableItems = new ArrayList<>();
 
-        // Create a temporary list to keep track of items that are already paired.
         Set<Integer> usedIndexes = new HashSet<>();
 
         for (int i = 0; i < productPrices.size(); i++) {
@@ -63,7 +61,6 @@ public class RuleEngineServiceImpl implements RuleEngineService {
             }
         }
 
-        // Output the results
         log.info("Discounted Items: {}", discountedItems);
         log.info("Payable Items: {}", payableItems);
 
@@ -78,14 +75,12 @@ public class RuleEngineServiceImpl implements RuleEngineService {
 
     @Override
     public RuleAPIReturnResponse offerRuleThree(List<Integer> productPrices) {
-        // Sort the list in descending order so the highest priced items are considered first.
-        Collections.sort(productPrices, Collections.reverseOrder());
+         Collections.sort(productPrices, Collections.reverseOrder());
 
         List<Integer> discountedItems = new ArrayList<>();
         List<Integer> payableItems = new ArrayList<>();
 
-        // Create a temporary list to keep track of items that are already paired.
-        Set<Integer> usedIndexes = new HashSet<>();
+         Set<Integer> usedIndexes = new HashSet<>();
 
         for (int i = 0; i < productPrices.size(); i++) {
             if (!usedIndexes.contains(i)) {
